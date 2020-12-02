@@ -6,8 +6,6 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const Index = () => {
 
-    console.log(process.env.VAR1)
-
     const [form, setForm] = useState({
         tombo: '',
         origem: '',
