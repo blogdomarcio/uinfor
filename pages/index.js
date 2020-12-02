@@ -8,6 +8,12 @@ const Index = () => {
 
     const [sucess, setSuccess] = useState(false)
 
+    const [msgTombo, setMsgTombo] = useState(false)
+
+    const [msgLocal, setMsgLocal] = useState(false)
+
+    const [msgMotivo, setMsgMotivo] = useState(false)
+
     const [form, setForm] = useState({
         tombo: '',
         origem: '',
@@ -27,22 +33,40 @@ const Index = () => {
 
         try {
 
+            if (form.tombo == '') {
+                setMsgTombo(true)
+            }
+            else if (form.origem == '') {
+                setMsgTombo(false)
+                setMsgLocal(true)
+            }
 
-            const response = await fetch('api/save', {
-                method: 'POST',
-                body: JSON.stringify(form)
-            })
-            const data = response.json()
+            else if (form.motivo == '') {
+                setMsgTombo(false)
+                setMsgLocal(false)
+                setMsgMotivo(true)
+            }
+            else {
 
-            setSuccess(true)
+                setMsgTombo(false)
+                setMsgLocal(false)
+                setMsgMotivo(false)
+                const response = await fetch('api/save', {
+                    method: 'POST',
+                    body: JSON.stringify(form)
+                })
+                const data = response.json()
 
-            setForm({
-                tombo: '',
-                origem: '',
-                config: '',
-                motivo: ''
-            })
+                setSuccess(true)
 
+                setForm({
+                    tombo: '',
+                    origem: '',
+                    config: '',
+                    motivo: ''
+                })
+
+            }
         }
         catch (err) {
 
@@ -88,9 +112,15 @@ const Index = () => {
                         <input className='bg-red-100 rounded-md p-2 text-center' name='config' placeholder='Ex. i3 540 - 4Gb - HD 500' onChange={onChange} value={form.config}></input>
 
                         <p className='p-2'>Motivo Retirada</p>
-                        <input className='bg-red-100 rounded-md p-2 text-center' name='motivo' placeholder='Ex. Subsituição / Defeito / Troca de Setor' onChange={onChange} value={form.motivo}></input>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='motivo' placeholder='Ex. Descarte / Troca' onChange={onChange} value={form.motivo}></input>
 
-                        <p className='p-2'> </p>
+                        {msgTombo && <p className='font-bold bg-red-900 text-white p-3 rounded-lg mt-5'>Digite o numero de Patrimônio!</p>}
+
+                        {msgLocal && <p className='font-bold bg-red-900 text-white p-3 rounded-lg mt-5'>Digite o local de origem!</p>}
+
+                        {msgMotivo && <p className='font-bold bg-red-900 text-white p-3 rounded-lg mt-5'>Digite o motivo da retirada!</p>}
+
+                        <p className=''> </p>
                         <button className='bg-red-400 px-12  py-4 mt-5 font-bold rounded-lg shadow-lg hover:shadow' onClick={salvar}> Salvar </button>
 
                     </div>

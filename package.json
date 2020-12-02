@@ -21,6 +21,7 @@
   "homepage": "https://github.com/blogdomarcio/uinfor#readme",
   "dependencies": {
     "autoprefixer": "^10.0.4",
+    "formik": "^2.2.5",
     "google-spreadsheet": "^3.0.14",
     "moment": "^2.29.1",
     "moments": "^0.0.2",
