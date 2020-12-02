@@ -74,7 +74,7 @@ const Index = () => {
 
                 {!sucess &&
 
-                    <div className='w-1/5 mx-auto'>
+                    <div className='mx-auto'>
 
                         <h1 className='font-bold text-center text-2xl p-2'> Registro de Recolhimento </h1>
 
@@ -98,7 +98,7 @@ const Index = () => {
 
                 {sucess &&
 
-                    <div className='w-2/5 mx-auto'>
+                    <div className='mx-auto'>
 
                         <p className='mb-2 text-center rounded-lg bg-red-100  mt-5 border-red-500 text-blue-700 px-4 py-3'>Cadastro Realizado com sucesso!.</p>
 
