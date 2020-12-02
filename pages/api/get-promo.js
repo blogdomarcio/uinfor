@@ -13,7 +13,7 @@ export default async (req, res) => {
         })
 
         await doc.loadInfo()
-        // console.log('Nome da Panilha:', doc.title)
+        console.log('Nome da Panilha:', doc.title)
 
 
         const sheet = doc.sheetsByIndex[2]
