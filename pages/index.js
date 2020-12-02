@@ -13,7 +13,7 @@ const Index = () => {
         motivo: ''
     })
 
-    const { data, error } = useSRW('/api/get-promo', fetcher)
+    // const { data, error } = useSRW('/api/get-promo', fetcher)
 
     const salvar = async () => {
 
@@ -55,9 +55,9 @@ const Index = () => {
         <>
 
 
-            {!data && <p>Carregando</p>}
+            {/* {!data && <p>Carregando</p>} */}
 
-            {data && data.showcupom && <p className='p-2 font-bold text-center'> {data.message} </p>}
+            {/* {data && data.showcupom && <p className='p-2 font-bold text-center'> {data.message} </p>} */}
 
 
             <div className='text-center p-2'>
