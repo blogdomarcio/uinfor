@@ -3,16 +3,16 @@ import { fromBase64 } from '../../utils/base64'
 
 export default async (req, res) => {
 
-    try {
+    const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID)
 
-        const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID)
+    try {
 
         await doc.useServiceAccountAuth({
             client_email: process.env.SHEET_CLIENT_EMAIL,
             private_key: fromBase64(process.env.SHEET_PRIVATE_KEY)
         })
-
         await doc.loadInfo()
+
         console.log('Nome da Panilha:', doc.title)
 
 
