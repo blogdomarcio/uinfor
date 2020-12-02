@@ -64,7 +64,7 @@ const Index = () => {
                 <h1 className='font-bold text-center text-2xl p-2'> Registro de Recolhimento </h1>
 
                 <p className='p-2'>Digite o Número do Patrimônio</p>
-                <input className='bg-red-100 rounded-md p-2 text-center' name='tombo' placeholder='Ex. 001.001' onChange={onChange} value={form.tombo}></input>
+                <input className='bg-red-100 rounded-md p-2 text-center' type='number' name='tombo' placeholder='Ex. 001.001' onChange={onChange} value={form.tombo}></input>
 
                 <p className='p-2'>Setor de Origem</p>
                 <input className='bg-red-100 rounded-md p-2 text-center' name='origem' placeholder='Ex: UINFOR, Unidade Gestora' onChange={onChange} value={form.origem} ></input>

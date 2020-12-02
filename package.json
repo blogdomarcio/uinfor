@@ -22,6 +22,8 @@
   "dependencies": {
     "autoprefixer": "^10.0.4",
     "google-spreadsheet": "^3.0.14",
+    "moment": "^2.29.1",
+    "moments": "^0.0.2",
     "next": "^10.0.3",
     "postcss": "^8.1.7",
     "react": "^17.0.1",

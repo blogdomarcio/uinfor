@@ -1,6 +1,7 @@
 
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { fromBase64 } from '../../utils/base64'
+import moment from 'moment'
 
 const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID)
 
@@ -30,6 +31,7 @@ export default async (req, res) => {
             "Origem": data.origem,
             "Configuração": data.config,
             "Motivo": data.motivo,
+            "Data Cadastro": moment().format('HH:mm:ss - DD/MM/YYYY, ')
         })
 
         res.end(req.body)
