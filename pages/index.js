@@ -103,16 +103,16 @@ const Index = () => {
                         <h1 className='font-bold text-center text-2xl p-2'> Registro de Recolhimento </h1>
 
                         <p className='p-2'>Digite o Número do Patrimônio</p>
-                        <input className='bg-red-100 rounded-md p-2 text-center' type='number' name='tombo' placeholder='Ex. 001.001' onChange={onChange} value={form.tombo}></input>
+                        <input className='bg-red-100 rounded-md p-2 text-center' type='number' name='tombo' placeholder='Ex. 001.001' onChange={onChange} value={form.tombo} autoComplete="off"></input>
 
                         <p className='p-2'>Setor de Origem</p>
-                        <input className='bg-red-100 rounded-md p-2 text-center' name='origem' placeholder='Ex: UINFOR, Unidade Gestora' onChange={onChange} value={form.origem} ></input>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='origem' placeholder='Ex: UINFOR, Unidade Gestora' onChange={onChange} value={form.origem} autoComplete="off" ></input>
 
                         <p className='p-2'>Configuração Básica</p>
-                        <input className='bg-red-100 rounded-md p-2 text-center' name='config' placeholder='Ex. i3 540 - 4Gb - HD 500' onChange={onChange} value={form.config}></input>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='config' placeholder='Ex. i3 540 - 4Gb - HD 500' onChange={onChange} value={form.config} autoComplete="off"></input>
 
                         <p className='p-2'>Motivo Retirada</p>
-                        <input className='bg-red-100 rounded-md p-2 text-center' name='motivo' placeholder='Ex. Descarte / Troca' onChange={onChange} value={form.motivo}></input>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='motivo' placeholder='Ex. Descarte / Troca' onChange={onChange} value={form.motivo} autoComplete="off"></input>
 
                         {msgTombo && <p className='font-bold bg-red-900 text-white p-3 rounded-lg mt-5'>Digite o numero de Patrimônio!</p>}
 
