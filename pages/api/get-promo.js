@@ -7,9 +7,13 @@ export default async (req, res) => {
 
     try {
 
-        const doc = new GoogleSpreadsheet('1o0TlbRoS_0whT9TnWYBftJPBU6F1UUwTDh5Ckj-cSXM')
+        const doc = new GoogleSpreadsheet(process.env.SHEET_DOC_ID)
 
-        await doc.useServiceAccountAuth(credentials)
+        await doc.useServiceAccountAuth({
+            client_email: process.env.SHEET_CLIENT_EMAIL,
+            private_key: process.env.SHEET_PRIVATE_KEY
+        })
+
         await doc.loadInfo()
         // console.log('Nome da Panilha:', doc.title)
 
