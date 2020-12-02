@@ -31,7 +31,7 @@ export default async (req, res) => {
             "Origem": data.origem,
             "Configuração": data.config,
             "Motivo": data.motivo,
-            "Data Cadastro": moment().format('HH:mm:ss - DD/MM/YYYY, ')
+            "Data Cadastro": moment().format('HH:mm:ss - DD/MM/YYYY, ', 'LT')
         })
 
         res.end(req.body)

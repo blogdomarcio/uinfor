@@ -6,6 +6,8 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const Index = () => {
 
+    const [sucess, setSuccess] = useState(false)
+
     const [form, setForm] = useState({
         tombo: '',
         origem: '',
@@ -14,6 +16,12 @@ const Index = () => {
     })
 
     // const { data, error } = useSRW('/api/get-promo', fetcher)
+
+    const novo = () => {
+
+        setSuccess(false)
+
+    }
 
     const salvar = async () => {
 
@@ -25,6 +33,8 @@ const Index = () => {
                 body: JSON.stringify(form)
             })
             const data = response.json()
+
+            setSuccess(true)
 
             setForm({
                 tombo: '',
@@ -61,26 +71,44 @@ const Index = () => {
 
 
             <div className='text-center p-2'>
-                <h1 className='font-bold text-center text-2xl p-2'> Registro de Recolhimento </h1>
 
-                <p className='p-2'>Digite o Número do Patrimônio</p>
-                <input className='bg-red-100 rounded-md p-2 text-center' type='number' name='tombo' placeholder='Ex. 001.001' onChange={onChange} value={form.tombo}></input>
+                {!sucess &&
 
-                <p className='p-2'>Setor de Origem</p>
-                <input className='bg-red-100 rounded-md p-2 text-center' name='origem' placeholder='Ex: UINFOR, Unidade Gestora' onChange={onChange} value={form.origem} ></input>
+                    <div className='w-1/5 mx-auto'>
 
-                <p className='p-2'>Configuração Básica</p>
-                <input className='bg-red-100 rounded-md p-2 text-center' name='config' placeholder='Ex. i3 540 - 4Gb - HD 500' onChange={onChange} value={form.config}></input>
+                        <h1 className='font-bold text-center text-2xl p-2'> Registro de Recolhimento </h1>
 
-                <p className='p-2'>Motivo Retirada</p>
-                <input className='bg-red-100 rounded-md p-2 text-center' name='motivo' placeholder='Ex. Subsituição / Defeito / Troca de Setor' onChange={onChange} value={form.motivo}></input>
+                        <p className='p-2'>Digite o Número do Patrimônio</p>
+                        <input className='bg-red-100 rounded-md p-2 text-center' type='number' name='tombo' placeholder='Ex. 001.001' onChange={onChange} value={form.tombo}></input>
 
-                <p className='p-2'> </p>
-                <button className='bg-red-400 px-12  py-4 mt-5 font-bold rounded-lg shadow-lg hover:shadow' onClick={salvar}> Salvar </button>
-                {/* <p class="rounded-full text-center py-3 px-6 bg-red-900 mt-12 shadow text-white font-bold">Cadastrar</p> */}
+                        <p className='p-2'>Setor de Origem</p>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='origem' placeholder='Ex: UINFOR, Unidade Gestora' onChange={onChange} value={form.origem} ></input>
+
+                        <p className='p-2'>Configuração Básica</p>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='config' placeholder='Ex. i3 540 - 4Gb - HD 500' onChange={onChange} value={form.config}></input>
+
+                        <p className='p-2'>Motivo Retirada</p>
+                        <input className='bg-red-100 rounded-md p-2 text-center' name='motivo' placeholder='Ex. Subsituição / Defeito / Troca de Setor' onChange={onChange} value={form.motivo}></input>
+
+                        <p className='p-2'> </p>
+                        <button className='bg-red-400 px-12  py-4 mt-5 font-bold rounded-lg shadow-lg hover:shadow' onClick={salvar}> Salvar </button>
+
+                    </div>
+                }
+
+                {sucess &&
+
+                    <div className='w-2/5 mx-auto'>
+
+                        <p className='mb-2 text-center rounded-lg bg-red-100  mt-5 border-red-500 text-blue-700 px-4 py-3'>Cadastro Realizado com sucesso!.</p>
+
+                        <p className='p-2'> </p>
+                        <button className='bg-red-400 px-12  py-4 mt-2 font-bold rounded-lg shadow-lg hover:shadow' onClick={novo}> Novo Cadastro </button>
+                    </div>
+
+                }
+
             </div>
-
-
 
         </>
     )
