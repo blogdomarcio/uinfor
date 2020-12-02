@@ -1,7 +1,4 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
-import credentials from '../../credentials.json'
-
-
 
 export default async (req, res) => {
 
